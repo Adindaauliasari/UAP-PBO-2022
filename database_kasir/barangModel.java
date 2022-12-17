@@ -16,18 +16,19 @@ import java.util.logging.Logger;
 public class barangModel {
     private final Connection koneksi;
 
-    public barangModel(Connection koneksi) {
+    public barangModel() {
         this.koneksi = DBHelper.getConnection();
     }
     
-    public void addBarang(barang brg){
-        String insert = "INSERT INTO barang (barcode, expired, id_kategori) VALUES "
-                + "('"+brg.getBarcode()+"', '"+brg.getExpired()+"', '"+brg.getKategori()+"')";
+    public void addBarang(barang brg, kategori ktg){
+        String insert = "INSERT INTO `barang`(`barcode`, `expired`, `kategori_barang`, `nama_barang`, `harga`, `jumlah`, `diskon`) VALUES ('"+brg.getBarcode()+"','"+brg.getExpired()+"','"+ktg.getId_kategori()+"','"+brg.getNama_produk()+"','"+brg.getHarga()+"','"+brg.getJumlah()+"','"+brg.getDiskon()+"')";
         
         try {
-            koneksi.createStatement().executeUpdate(insert);
+            koneksi.createStatement().execute(insert);
+            System.out.println("Berhasil memasukan data");
         } catch (SQLException ex) {
             Logger.getLogger(barangModel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Gagal memasukan data");
         }
     }
     

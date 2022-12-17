@@ -1,11 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package database_kasir;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author A C E R
+ */
 public class barang extends produk {
     private String barcode;
-    private String expired;
+    private LocalDate expired;
     private ArrayList <kategori> kategori;
 
-    public barang(String barcode, String expired, ArrayList<kategori> kategori, String nama_produk, double harga, int jumlah, double diskon) {
+    public barang(String barcode, LocalDate expired, ArrayList<kategori> kategori, 
+            String nama_produk, double harga, int jumlah, double diskon) {
         super(nama_produk, harga, jumlah, diskon);
         this.barcode = barcode;
         this.expired = expired;
@@ -20,11 +33,11 @@ public class barang extends produk {
         this.barcode = barcode;
     }
 
-    public String getExpired() {
+    public LocalDate getExpired() {
         return expired;
     }
 
-    public void setExpired(String expired) {
+    public void setExpired(LocalDate expired) {
         this.expired = expired;
     }
 
@@ -41,8 +54,11 @@ public class barang extends produk {
         return super.getHarga() - super.getDiskon();
     }
 
-    public void  isExpired(){
-        
+    public void isExpired(){
+        LocalDate today = LocalDate.now();
+        if(today.compareTo(expired) > 0){
+            System.out.println("Expired");
+        }
     }
     
     public int addKategori(kategori ktg){

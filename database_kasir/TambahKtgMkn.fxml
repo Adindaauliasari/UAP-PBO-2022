@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #292929; -fx-border-color: #ffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="database_kasir.TambahKtgMknController">
+   <children>
+      <VBox prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: #ffa31a; -fx-border-color: #ffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane fx:id="paneMenu" onMouseClicked="#homeMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffa31a; -fx-border-color: #ffffff;">
+               <children>
+                  <Label layoutX="53.0" layoutY="74.0" text="blackMarket">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="btnBarang" mnemonicParsing="false" onAction="#barangMenu" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #ffa31a; -fx-border-color: #ffffff;">
+               <graphic>
+                  <Label text="Barang">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="btnMakanan" mnemonicParsing="false" onAction="#makananMenu" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #ffa31a; -fx-border-color: #ffffff;">
+               <graphic>
+                  <Label text="Makanan">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="300.0" prefHeight="100.0" prefWidth="980.0" style="-fx-background-color: #808080; -fx-border-color: #ffffff;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fx:id="txtHome" fill="#ffa31a" layoutX="50.0" layoutY="60.0" onMouseClicked="#homeMenu" strokeType="OUTSIDE" strokeWidth="0.0" text="home/">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtMakanan" fill="#ffa31a" layoutX="103.0" layoutY="60.0" onMouseClicked="#makananMenu" strokeType="OUTSIDE" strokeWidth="0.0" text="makanan/">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtKategori" fill="#ffa31a" layoutX="182.0" layoutY="60.0" onMouseClicked="#kategoriMenu" strokeType="OUTSIDE" strokeWidth="0.0" text="kategori/">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#ffa31a" layoutX="254.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tambah/">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="300.0" layoutY="623.0" prefHeight="100.0" prefWidth="980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fill="#ffa31a" layoutX="50.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Since 2022 December">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="300.0" layoutY="555.0" prefHeight="65.0" prefWidth="980.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnTambahKtgMkn" layoutX="700.0" layoutY="10.0" mnemonicParsing="false" onAction="#makananMenu" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ffa31a; -fx-border-color: #ffffff;">
+               <graphic>
+                  <Label text="Tambah" />
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="300.0" layoutY="100.0" prefHeight="450.0" prefWidth="980.0" AnchorPane.bottomAnchor="169.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Label layoutX="75.0" layoutY="50.0" text="ID" textFill="#ffa31a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="75.0" layoutY="100.0" text="Nama" textFill="#ffa31a">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="fieldIDKtgMkn" layoutX="250.0" layoutY="50.0" prefHeight="26.0" prefWidth="500.0" />
+            <TextField fx:id="fieldNamaKtgMkn" layoutX="250.0" layoutY="100.0" prefHeight="26.0" prefWidth="500.0" />
+         </children>
+      </Pane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

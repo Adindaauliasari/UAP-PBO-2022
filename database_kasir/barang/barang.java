@@ -1,28 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package database_kasir;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/**
- *
- * @author A C E R
- */
-public class barang extends produk {
+public class Barang extends Produk {
     private String barcode;
     private LocalDate expired;
-    private ArrayList <kategori> kategori;
+    private int id_kategori;
+    private ArrayList <KategoriBarang> kategori;
 
-    public barang(String barcode, LocalDate expired, ArrayList<kategori> kategori, 
+    public Barang(String barcode, LocalDate expired, ArrayList<KategoriBarang> kategori, 
             String nama_produk, double harga, int jumlah, double diskon) {
         super(nama_produk, harga, jumlah, diskon);
         this.barcode = barcode;
         this.expired = expired;
         this.kategori = kategori;
+    }
+    
+    public Barang(String barcode, LocalDate expired, int id_kategori, 
+            String nama_produk, double harga, int jumlah, double diskon) {
+        super(nama_produk, harga, jumlah, diskon);
+        this.barcode = barcode;
+        this.expired = expired;
+        KategoriBarang ktg = new KategoriBarang(id_kategori);
+        this.id_kategori = id_kategori;
     }
 
     public String getBarcode() {
@@ -41,27 +42,35 @@ public class barang extends produk {
         this.expired = expired;
     }
 
-    public ArrayList<kategori> getKategori() {
+    public ArrayList<KategoriBarang> getKategori() {
         return kategori;
     }
+    
+    public int getId_kategori() {
+        return id_kategori;
+    }
 
-    public void setKategori(ArrayList<kategori> kategori) {
+    public void setKategori(ArrayList<KategoriBarang> kategori) {
         this.kategori = kategori;
     }
 
     @Override
     public double hargaDiskon() {
-        return super.getHarga() - super.getDiskon();
+        return super.getHarga() - (super.getDiskon() * super.getHarga());
     }
 
-    public void isExpired(){
+    public void isExpired() {
         LocalDate today = LocalDate.now();
         if(today.compareTo(expired) > 0){
-            System.out.println("Expired");
+            System.out.println("Barang Sudah Expired");
+        }else {
+            System.out.println("Barang Belum Expired");
         }
     }
     
-    public int addKategori(kategori ktg){
-        return ktg.getId_kategori();
+    public void getBarang(int id_kategori, String nama_kategori) {
+        KategoriBarang ktg = new KategoriBarang(id_kategori,nama_kategori);
+        System.out.println(super.getNama_produk());
+        System.out.println(ktg.getNama_kategori());
     }
 }

@@ -1,5 +1,8 @@
-package database_kasir;
+package database_kasir.Barang;
 
+import database_kasir.Produk.*;
+import database_kasir.MakananController.*;
+import database_kasir.*;
 import db.DBHelper;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class BarangModel {
     private final Connection koneksi;
@@ -53,9 +58,9 @@ public class BarangModel {
         }
     }
     
-    public ArrayList<Barang> getBarang (){
+    public ObservableList<Barang> getBarang (){
         String select = "SELECT * FROM `barang`";
-        ArrayList<Barang> brg = new ArrayList<Barang>();
+        ObservableList<Barang> brg = FXCollections.observableArrayList();
         
         ResultSet rs;
         try {
